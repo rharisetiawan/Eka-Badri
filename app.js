@@ -592,3 +592,92 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ================================================
+// TOMBOL RAHASIA: BERSIHKAN CACHE & REFRESH
+// Ketuk nama mempelai di footer 5x cepat (dalam 3 detik)
+// untuk memunculkan tombol ini. Berguna kalau kamu baru
+// update foto/teks undangan dan mau lihat versi terbaru
+// tanpa utak-atik pengaturan browser.
+// ================================================
+(function setupSecretRefreshButton() {
+    const footerNames = document.querySelector('.footer-names');
+    if (!footerNames) return;
+
+    let tapCount = 0;
+    let tapTimer = null;
+
+    footerNames.addEventListener('click', () => {
+        tapCount++;
+        clearTimeout(tapTimer);
+        tapTimer = setTimeout(() => { tapCount = 0; }, 3000);
+
+        if (tapCount >= 5) {
+            tapCount = 0;
+            showSecretRefreshButton();
+        }
+    });
+
+    function showSecretRefreshButton() {
+        if (document.getElementById('secretRefreshBtn')) return;
+
+        const btn = document.createElement('button');
+        btn.id = 'secretRefreshBtn';
+        btn.innerHTML = '<i class="bi bi-arrow-repeat"></i> Bersihkan Cache & Refresh';
+        btn.style.cssText = `
+            position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%);
+            z-index: 99999; display: flex; align-items: center; gap: 8px;
+            background: var(--gold); color: var(--primary-dark); border: none;
+            border-radius: 50px; padding: 0.7rem 1.25rem; font-family: var(--font-sans);
+            font-size: 0.8rem; font-weight: 600; box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+            cursor: pointer;
+        `;
+
+        btn.addEventListener('click', async () => {
+            btn.disabled = true;
+            btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Membersihkan...';
+
+            localStorage.clear();
+            sessionStorage.clear();
+
+            if ('caches' in window) {
+                const names = await caches.keys();
+                await Promise.all(names.map(n => caches.delete(n)));
+            }
+            if ('serviceWorker' in navigator) {
+                const regs = await navigator.serviceWorker.getRegistrations();
+                await Promise.all(regs.map(r => r.unregister()));
+            }
+
+            // Cache-bust: ganti URL supaya browser wajib ambil ulang
+            // semua file (HTML/CSS/JS/gambar), bukan pakai versi lama.
+            const url = new URL(location.href);
+            url.searchParams.set('_refresh', Date.now());
+            location.href = url.toString();
+        });
+
+        document.body.appendChild(btn);
+        showToast('🔓 Tombol refresh muncul di bawah');
+    }
+})();
+
+// Kalau URL mengandung ?_refresh=..., paksa ambil ulang semua foto
+// (background-image & <img>) dengan query cache-buster yang sama,
+// supaya foto lama yang sempat ke-cache browser ikut ter-refresh.
+(function bustImageCacheIfRequested() {
+    const v = new URLSearchParams(location.search).get('_refresh');
+    if (!v) return;
+
+    const bust = (url) => url + (url.includes('?') ? '&' : '?') + 'v=' + v;
+
+    document.querySelectorAll('img[src]').forEach(img => {
+        if (!/^https?:\/\//.test(img.src)) img.src = bust(img.getAttribute('src'));
+    });
+
+    document.querySelectorAll('[style*="background-image"]').forEach(el => {
+        const match = el.style.backgroundImage.match(/url\((['"]?)(.*?)\1\)/);
+        if (match && !/^https?:\/\//.test(match[2])) {
+            el.style.backgroundImage = `url('${bust(match[2])}')`;
+        }
+    });
+})();
