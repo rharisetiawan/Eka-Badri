@@ -431,72 +431,48 @@ function submitWish(e) {
         weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
     });
 
-    // Kirim via GET + URL params
-    const params = new URLSearchParams({
-        action  : 'wish',
-        name    : name,
-        message : message
-    });
+    // Simpan ke localStorage saja (lihat catatan di fetchWishes soal
+    // SCRIPT_URL bersama template lama) sampai ada Google Sheet khusus
+    // Eka & Badri.
+    const wishes  = JSON.parse(localStorage.getItem('wedding-wishes') || '[]');
+    const newWish = { name, message, time: timeString };
+    wishes.unshift(newWish);
+    localStorage.setItem('wedding-wishes', JSON.stringify(wishes));
 
-    fetch(SCRIPT_URL + '?' + params.toString(), { method: 'GET', mode: 'no-cors' })
-        .then(() => {
-            const wishes  = JSON.parse(localStorage.getItem('wedding-wishes') || '[]');
-            const newWish = { name, message, time: timeString };
-            wishes.unshift(newWish);
-            localStorage.setItem('wedding-wishes', JSON.stringify(wishes));
-
-            addWishToDOM(newWish, true);
-            showToast('💌 Ucapan terkirim! Terima kasih!');
-            document.getElementById('wishForm').reset();
-        })
-        .catch(() => showToast('❌ Gagal mengirim ucapan, coba lagi'))
-        .finally(() => {
-            btn.innerHTML = originalText;
-            btn.disabled  = false;
-        });
+    addWishToDOM(newWish, true);
+    showToast('💌 Ucapan terkirim! Terima kasih!');
+    document.getElementById('wishForm').reset();
+    btn.innerHTML = originalText;
+    btn.disabled  = false;
 }
 
-// Fetch ucapan dari Google Sheets saat halaman dibuka
+// Tampilkan ucapan dari localStorage saat halaman dibuka.
+// Catatan: SCRIPT_URL adalah Google Apps Script bersama milik template lama
+// (Sabrina & Alak) dan tidak memfilter per-pasangan, jadi sengaja TIDAK
+// dipakai di sini agar ucapan tamu Eka & Badri tidak tercampur ucapan
+// pasangan lain. Sambungkan ke Google Sheet baru khusus Eka & Badri kalau
+// mau ucapan tersimpan terpusat, bukan hanya di browser masing-masing tamu.
 function fetchWishes() {
     const wishesList = document.getElementById('wishesList');
     if (!wishesList) return;
 
-    // Tampilkan loading sementara
-    wishesList.innerHTML = `<div style="text-align:center; padding: 1.5rem; color: var(--text-muted); font-size:0.78rem;">
-        <i class="bi bi-hourglass-split"></i> Memuat ucapan...
-    </div>`;
-
-    const params = new URLSearchParams({ action: 'get_wishes' });
-
-    fetch(SCRIPT_URL + '?' + params.toString())
-        .then(res => res.json())
-        .then(data => {
-            wishesList.innerHTML = '';
-            if (data.wishes && data.wishes.length > 0) {
-                data.wishes.forEach(wish => addWishToDOM(wish, false));
-            } else {
-                wishesList.innerHTML = `<div style="text-align:center; padding: 1.5rem; color: var(--text-muted); font-size:0.78rem;">
-                    💌 Belum ada ucapan. Jadilah yang pertama!
-                </div>`;
-            }
-        })
-        .catch(() => {
-            // Jika gagal (misal offline), fallback ke localStorage
-            wishesList.innerHTML = '';
-            const local = JSON.parse(localStorage.getItem('wedding-wishes') || '[]');
-            if (local.length > 0) {
-                local.forEach(wish => addWishToDOM(wish, false));
-            } else {
-                wishesList.innerHTML = `<div style="text-align:center; padding: 1.5rem; color: var(--text-muted); font-size:0.78rem;">
-                    💌 Belum ada ucapan. Jadilah yang pertama!
-                </div>`;
-            }
-        });
+    wishesList.innerHTML = '';
+    const local = JSON.parse(localStorage.getItem('wedding-wishes') || '[]');
+    if (local.length > 0) {
+        local.forEach(wish => addWishToDOM(wish, false));
+    } else {
+        wishesList.innerHTML = `<div class="wish-empty" style="text-align:center; padding: 1.5rem; color: var(--text-muted); font-size:0.78rem;">
+            💌 Belum ada ucapan. Jadilah yang pertama!
+        </div>`;
+    }
 }
 
 
 function addWishToDOM(wish, prepend = false) {
     const wishesList = document.getElementById('wishesList');
+    const emptyState = wishesList.querySelector('.wish-empty');
+    if (emptyState) emptyState.remove();
+
     const item = document.createElement('div');
     item.className = 'wish-item';
     item.innerHTML = `

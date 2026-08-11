@@ -36,10 +36,11 @@
     --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.2);
     --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --font-script: 'Great Vibes', cursive;
-    --font-serif: 'Cormorant Garamond', serif;
+    --font-script: 'Alex Brush', cursive;
+    --font-serif: 'Marcellus', serif;
+    --font-arabic: 'Amiri', serif;
 
-    --font-sans: 'Montserrat', sans-serif;
+    --font-sans: 'Jost', sans-serif;
     --invitation-width: 430px;
 }
 
@@ -732,10 +733,16 @@ img { max-width: 100%; }
 }
 
 .bismillah {
+    font-family: var(--font-arabic);
     font-size: 1.6rem;
     color: var(--gold-light);
     line-height: 1.5;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.arabic-text {
+    font-family: var(--font-arabic);
+    font-style: normal !important;
 }
 
 .opening-greeting {
