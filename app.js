@@ -1,6 +1,6 @@
 /* ================================================
    app.js - Wedding Invitation JavaScript
-   Sabrina & Alak | 27 Juli & 1 Agustus 2026
+   Eka & Badri | 3 September 2026
    ================================================ */
 
 'use strict';
@@ -8,7 +8,7 @@
 // ================================================
 // CONSTANTS & CONFIG
 // ================================================
-const WEDDING_DATE = new Date('2026-08-01T11:00:00+07:00');
+const WEDDING_DATE = new Date('2026-09-03T10:00:00+07:00');
 const GALLERY_IMAGES = [
     'img/keluarga-full.jpeg'
 ];
@@ -550,11 +550,11 @@ window.addEventListener('scroll', () => {
 // ================================================
 function shareInvitation() {
     const url = window.location.href;
-    const text = 'Kami mengundang Bapak/Ibu/Saudara/i ke Resepsi Pernikahan Sabrina & Alak - 27 Juli & 1 Agustus 2026 di Kota Malang';
+    const text = 'Kami mengundang Bapak/Ibu/Saudara/i ke Resepsi Pernikahan Eka & Badri - Rabu, 3 September 2026 di Dau, Malang';
 
     if (navigator.share) {
         navigator.share({
-            title: 'Undangan Pernikahan Sabrina & Alak',
+            title: 'Undangan Pernikahan Eka & Badri',
             text: text,
             url: url
         }).catch(console.warn);
