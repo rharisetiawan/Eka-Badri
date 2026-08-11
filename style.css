@@ -5,26 +5,27 @@
 
 /* === VARIABLES === */
 :root {
-    /* ── TEMA AKTIF: Zamrud Islami & Emas Antik ────────
-       Hijau zamrud pekat + emas antik, dihiasi motif
-       geometris ala kaligrafi/arabesque
+    /* ── TEMA AKTIF: Crimson Ornamental & Emas Antik ───
+       Merah crimson/marun pekat diambil dari warna tirai
+       foto prewedding + emas antik, motif geometris ala
+       kaligrafi/arabesque tetap dipakai
     ─────────────────────────────────────────────────── */
-    --primary:        #0f5c46;   /* zamrud sedang        */
-    --primary-dark:   #05201a;   /* zamrud sangat gelap  */
-    --primary-light:  #1c8a68;   /* zamrud segar         */
-    --primary-lighter:#bfe3d3;   /* mint lembut          */
+    --primary:        #8c1c28;   /* crimson tirai foto   */
+    --primary-dark:   #2a0a0e;   /* crimson sangat gelap */
+    --primary-light:  #b83244;   /* crimson segar        */
+    --primary-lighter:#e8c3c8;   /* merah muda lembut    */
     --gold:           #c9a227;   /* emas antik           */
     --gold-light:     #e8c766;   /* emas terang          */
     --cream:          #f7f0dc;
 
-    /* ── TEMA LAMA: Merah Marun & Emas (backup) ────────
-    --primary:        #7a1f2b;
-    --primary-dark:   #2e0a10;
-    --primary-light:  #b23a46;
-    --primary-lighter:#e8c3c8;
-    --gold:           #d4af37;
-    --gold-light:     #f0d060;
-    --cream:          #faf3ea;
+    /* ── TEMA SEBELUMNYA: Zamrud Islami & Emas Antik ───
+    --primary:        #0f5c46;
+    --primary-dark:   #05201a;
+    --primary-light:  #1c8a68;
+    --primary-lighter:#bfe3d3;
+    --gold:           #c9a227;
+    --gold-light:     #e8c766;
+    --cream:          #f7f0dc;
     ─────────────────────────────────────────────────── */
 
     --white: #ffffff;
@@ -154,9 +155,9 @@ img { max-width: 100%; }
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(5, 32, 26, 0.2) 0%,
-        rgba(5, 32, 26, 0.4) 40%,
-        rgba(15, 92, 70, 0.9) 100%
+        rgba(42, 10, 14, 0.2) 0%,
+        rgba(42, 10, 14, 0.4) 40%,
+        rgba(140, 28, 40, 0.9) 100%
     );
 }
 
@@ -526,9 +527,9 @@ img { max-width: 100%; }
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(5, 32, 26, 0.1) 0%,
-        rgba(5, 32, 26, 0.2) 40%,
-        rgba(15, 92, 70, 0.95) 100%
+        rgba(42, 10, 14, 0.1) 0%,
+        rgba(42, 10, 14, 0.2) 40%,
+        rgba(140, 28, 40, 0.95) 100%
     );
 }
 
@@ -656,7 +657,7 @@ img { max-width: 100%; }
 .quote-bg {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, rgba(15, 92, 70, 0.3) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(140, 28, 40, 0.3) 0%, transparent 70%);
 }
 
 .quote-content {
@@ -792,7 +793,7 @@ img { max-width: 100%; }
     background: linear-gradient(
         to bottom,
         transparent 40%,
-        rgba(5, 32, 26, 0.95) 100%
+        rgba(42, 10, 14, 0.95) 100%
     );
 }
 
@@ -894,7 +895,7 @@ img { max-width: 100%; }
 .schedule-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(5, 32, 26, 0.88);
+    background: rgba(42, 10, 14, 0.88);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 }
@@ -1213,7 +1214,7 @@ img { max-width: 100%; }
 .gallery-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(5, 32, 26, 0.9);
+    background: rgba(42, 10, 14, 0.9);
 }
 
 .gallery-content {
@@ -1259,7 +1260,7 @@ img { max-width: 100%; }
 .gallery-hover {
     position: absolute;
     inset: 0;
-    background: rgba(15, 92, 70, 0.6);
+    background: rgba(140, 28, 40, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1456,7 +1457,7 @@ img { max-width: 100%; }
 .wish-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(5, 32, 26, 0.87);
+    background: rgba(42, 10, 14, 0.87);
 }
 
 .wish-content {
@@ -1565,7 +1566,7 @@ img { max-width: 100%; }
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(5, 32, 26, 0.85) 0%,
+        rgba(42, 10, 14, 0.85) 0%,
         rgba(26, 26, 26, 0.95) 100%
     );
 }
@@ -1833,7 +1834,7 @@ img { max-width: 100%; }
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(5, 32, 26, 0.6) 0%,
+        rgba(42, 10, 14, 0.6) 0%,
         rgba(30, 8, 12, 0.92) 100%
     );
 }
@@ -1883,7 +1884,7 @@ img { max-width: 100%; }
 .bank-card:hover {
     border-color: rgba(201, 162, 39, 0.65);
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(5, 32, 26, 0.5);
+    box-shadow: 0 12px 30px rgba(42, 10, 14, 0.5);
 }
 
 .bank-header {
