@@ -611,8 +611,8 @@ style.textContent = `
         animation: heartbeat 1.5s ease-in-out infinite;
     }
     @keyframes pulse-glow {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-        50% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0.2); }
+        0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0); }
+        50% { box-shadow: 0 0 0 12px rgba(201, 162, 39, 0.2); }
     }
 `;
 document.head.appendChild(style);

@@ -5,25 +5,26 @@
 
 /* === VARIABLES === */
 :root {
-    /* ── TEMA AKTIF: Merah Marun & Emas ────────────────
-       Menyesuaikan nuansa foto prewedding (kain marun & emas)
+    /* ── TEMA AKTIF: Zamrud Islami & Emas Antik ────────
+       Hijau zamrud pekat + emas antik, dihiasi motif
+       geometris ala kaligrafi/arabesque
     ─────────────────────────────────────────────────── */
-    --primary:        #7a1f2b;   /* merah marun sedang   */
-    --primary-dark:   #2e0a10;   /* marun sangat gelap   */
-    --primary-light:  #b23a46;   /* merah segar          */
-    --primary-lighter:#e8c3c8;   /* merah muda lembut    */
-    --gold:           #d4af37;   /* aksen emas           */
-    --gold-light:     #f0d060;   /* aksen emas terang    */
-    --cream:          #faf3ea;
+    --primary:        #0f5c46;   /* zamrud sedang        */
+    --primary-dark:   #05201a;   /* zamrud sangat gelap  */
+    --primary-light:  #1c8a68;   /* zamrud segar         */
+    --primary-lighter:#bfe3d3;   /* mint lembut          */
+    --gold:           #c9a227;   /* emas antik           */
+    --gold-light:     #e8c766;   /* emas terang          */
+    --cream:          #f7f0dc;
 
-    /* ── TEMA LAMA: Hijau Alam (backup) ────────────────
-    --primary:        #2d6a1f;
-    --primary-dark:   #122e0a;
-    --primary-light:  #5a9e30;
-    --primary-lighter:#c8e6b0;
-    --gold:           #a8c940;
-    --gold-light:     #cfe870;
-    --cream:          #f0f7e8;
+    /* ── TEMA LAMA: Merah Marun & Emas (backup) ────────
+    --primary:        #7a1f2b;
+    --primary-dark:   #2e0a10;
+    --primary-light:  #b23a46;
+    --primary-lighter:#e8c3c8;
+    --gold:           #d4af37;
+    --gold-light:     #f0d060;
+    --cream:          #faf3ea;
     ─────────────────────────────────────────────────── */
 
     --white: #ffffff;
@@ -106,7 +107,7 @@ img { max-width: 100%; }
 .preloader-ring {
     width: 80px;
     height: 80px;
-    border: 3px solid rgba(212, 175, 55, 0.2);
+    border: 3px solid rgba(201, 162, 39, 0.2);
     border-top-color: var(--gold);
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -152,9 +153,9 @@ img { max-width: 100%; }
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(46, 10, 16, 0.2) 0%,
-        rgba(46, 10, 16, 0.4) 40%,
-        rgba(122, 31, 43, 0.9) 100%
+        rgba(5, 32, 26, 0.2) 0%,
+        rgba(5, 32, 26, 0.4) 40%,
+        rgba(15, 92, 70, 0.9) 100%
     );
 }
 
@@ -251,7 +252,7 @@ img { max-width: 100%; }
     background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
     color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 12px 32px rgba(201, 162, 39, 0.4);
 }
 
 .open-btn i { font-size: 1.1rem; }
@@ -260,11 +261,13 @@ img { max-width: 100%; }
     animation: pulse-glow 2s ease-in-out infinite;
 }
 
-/* Welcome Petals */
+/* Welcome Ornaments (bintang geometris pengganti kelopak bunga) */
 .welcome-petal {
     position: absolute;
-    font-size: 1.5rem;
-    opacity: 0.4;
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    text-shadow: 0 0 10px rgba(232, 199, 102, 0.7);
+    opacity: 0.55;
     animation: float-petal 6s ease-in-out infinite;
     pointer-events: none;
 }
@@ -288,11 +291,11 @@ img { max-width: 100%; }
 .firefly {
     display: block;
     position: absolute;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
+    width: 7px;
+    height: 7px;
     background: var(--gold-light);
-    box-shadow: 0 0 8px 3px rgba(240, 208, 96, 0.6);
+    clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+    box-shadow: 0 0 8px 2px rgba(232, 199, 102, 0.55);
     animation: firefly-move 8s ease-in-out infinite;
 }
 
@@ -335,13 +338,13 @@ img { max-width: 100%; }
 }
 
 .music-btn:hover {
-    background: rgba(212, 175, 55, 0.3);
+    background: rgba(201, 162, 39, 0.3);
     transform: scale(1.1);
 }
 
 .music-btn.playing {
     animation: rotate-music 4s linear infinite;
-    background: rgba(212, 175, 55, 0.2);
+    background: rgba(201, 162, 39, 0.2);
 }
 
 /* Music info badge */
@@ -351,7 +354,7 @@ img { max-width: 100%; }
     right: 3.75rem;
     z-index: 900;
     background: rgba(20, 15, 8, 0.9);
-    border: 1px solid rgba(212, 175, 55, 0.4);
+    border: 1px solid rgba(201, 162, 39, 0.4);
     border-radius: 50px;
     padding: 0.35rem 0.875rem;
     font-size: 0.65rem;
@@ -417,7 +420,7 @@ img { max-width: 100%; }
 .nav-item:hover,
 .nav-item.active {
     color: var(--gold-light);
-    background: rgba(212, 175, 55, 0.15);
+    background: rgba(201, 162, 39, 0.15);
 }
 
 /* ================================================
@@ -468,7 +471,7 @@ img { max-width: 100%; }
 .sidebar-names {
     font-size: 3.5rem;
     color: var(--gold-light);
-    text-shadow: 2px 4px 20px rgba(212, 175, 55, 0.3);
+    text-shadow: 2px 4px 20px rgba(201, 162, 39, 0.3);
     line-height: 1.2;
 }
 
@@ -522,9 +525,9 @@ img { max-width: 100%; }
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(46, 10, 16, 0.1) 0%,
-        rgba(46, 10, 16, 0.2) 40%,
-        rgba(122, 31, 43, 0.95) 100%
+        rgba(5, 32, 26, 0.1) 0%,
+        rgba(5, 32, 26, 0.2) 40%,
+        rgba(15, 92, 70, 0.95) 100%
     );
 }
 
@@ -652,7 +655,7 @@ img { max-width: 100%; }
 .quote-bg {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, rgba(122, 31, 43, 0.3) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(15, 92, 70, 0.3) 0%, transparent 70%);
 }
 
 .quote-content {
@@ -782,7 +785,7 @@ img { max-width: 100%; }
     background: linear-gradient(
         to bottom,
         transparent 40%,
-        rgba(46, 10, 16, 0.95) 100%
+        rgba(5, 32, 26, 0.95) 100%
     );
 }
 
@@ -839,7 +842,7 @@ img { max-width: 100%; }
 }
 
 .sosmed-btn:hover {
-    background: rgba(212, 175, 55, 0.2);
+    background: rgba(201, 162, 39, 0.2);
     transform: translateY(-2px);
 }
 
@@ -884,7 +887,7 @@ img { max-width: 100%; }
 .schedule-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(46, 10, 16, 0.88);
+    background: rgba(5, 32, 26, 0.88);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 }
@@ -904,6 +907,35 @@ img { max-width: 100%; }
     color: var(--gold-light);
     text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
+    position: relative;
+    padding-bottom: 0.9rem;
+}
+
+/* Ornamen geometris ala arabesque pengganti garis polos */
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 8px;
+    background-image:
+        linear-gradient(45deg, var(--gold) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--gold) 25%, transparent 25%);
+    background-size: 8px 8px;
+    background-position: 0 0;
+    opacity: 0.75;
+}
+
+.ornament-strip {
+    width: 100%;
+    height: 7px;
+    background-image:
+        linear-gradient(45deg, var(--gold) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--gold) 25%, transparent 25%);
+    background-size: 7px 7px;
+    opacity: 0.5;
 }
 
 .section-subtitle {
@@ -934,15 +966,15 @@ img { max-width: 100%; }
 .event-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow);
-    border-color: rgba(212, 175, 55, 0.4);
+    border-color: rgba(201, 162, 39, 0.4);
 }
 
 .event-icon-wrap {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: rgba(212, 175, 55, 0.2);
-    border: 1px solid rgba(212, 175, 55, 0.4);
+    background: rgba(201, 162, 39, 0.2);
+    border: 1px solid rgba(201, 162, 39, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1017,13 +1049,13 @@ img { max-width: 100%; }
 }
 
 .btn-calendar {
-    background: rgba(212, 175, 55, 0.2);
-    border-color: rgba(212, 175, 55, 0.5);
+    background: rgba(201, 162, 39, 0.2);
+    border-color: rgba(201, 162, 39, 0.5);
     color: var(--gold-light);
 }
 
 .btn-calendar:hover {
-    background: rgba(212, 175, 55, 0.35);
+    background: rgba(201, 162, 39, 0.35);
     transform: translateY(-2px);
 }
 
@@ -1120,7 +1152,7 @@ img { max-width: 100%; }
 
 .timeline-card:hover {
     transform: translateX(4px);
-    border-color: rgba(212, 175, 55, 0.4);
+    border-color: rgba(201, 162, 39, 0.4);
 }
 
 .timeline-img {
@@ -1174,7 +1206,7 @@ img { max-width: 100%; }
 .gallery-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(46, 10, 16, 0.9);
+    background: rgba(5, 32, 26, 0.9);
 }
 
 .gallery-content {
@@ -1220,7 +1252,7 @@ img { max-width: 100%; }
 .gallery-hover {
     position: absolute;
     inset: 0;
-    background: rgba(122, 31, 43, 0.6);
+    background: rgba(15, 92, 70, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1282,7 +1314,7 @@ img { max-width: 100%; }
 .lightbox-close:hover,
 .lightbox-prev:hover,
 .lightbox-next:hover {
-    background: rgba(212, 175, 55, 0.3);
+    background: rgba(201, 162, 39, 0.3);
 }
 
 /* ================================================
@@ -1358,9 +1390,9 @@ img { max-width: 100%; }
 .form-input::placeholder { color: rgba(255, 255, 255, 0.4); }
 
 .form-input:focus {
-    border-color: rgba(212, 175, 55, 0.6);
+    border-color: rgba(201, 162, 39, 0.6);
     background: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
 }
 
 .form-textarea {
@@ -1376,7 +1408,7 @@ img { max-width: 100%; }
 .btn-submit {
     width: 100%;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    border: 2px solid rgba(212, 175, 55, 0.4);
+    border: 2px solid rgba(201, 162, 39, 0.4);
     border-radius: 50px;
     padding: 0.875rem;
     color: var(--white);
@@ -1396,7 +1428,7 @@ img { max-width: 100%; }
     background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
     color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 24px rgba(201, 162, 39, 0.3);
 }
 
 /* ================================================
@@ -1417,7 +1449,7 @@ img { max-width: 100%; }
 .wish-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(46, 10, 16, 0.87);
+    background: rgba(5, 32, 26, 0.87);
 }
 
 .wish-content {
@@ -1526,7 +1558,7 @@ img { max-width: 100%; }
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(46, 10, 16, 0.85) 0%,
+        rgba(5, 32, 26, 0.85) 0%,
         rgba(26, 26, 26, 0.95) 100%
     );
 }
@@ -1594,7 +1626,7 @@ img { max-width: 100%; }
 .closing-couple-names {
     font-size: 2.5rem;
     color: var(--gold-light);
-    text-shadow: 1px 2px 8px rgba(212, 175, 55, 0.3);
+    text-shadow: 1px 2px 8px rgba(201, 162, 39, 0.3);
     margin-top: 0.5rem;
 }
 
@@ -1605,7 +1637,7 @@ img { max-width: 100%; }
     background: var(--primary-dark);
     padding: 2rem 1.5rem;
     text-align: center;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-top: 1px solid rgba(201, 162, 39, 0.2);
 }
 
 .footer-content {
@@ -1644,7 +1676,7 @@ img { max-width: 100%; }
     left: 50%;
     transform: translateX(-50%) translateY(20px);
     background: rgba(30, 30, 30, 0.95);
-    border: 1px solid rgba(212, 175, 55, 0.4);
+    border: 1px solid rgba(201, 162, 39, 0.4);
     border-radius: 50px;
     padding: 0.75rem 1.5rem;
     color: var(--gold-light);
@@ -1686,8 +1718,8 @@ img { max-width: 100%; }
 }
 
 @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-    50% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0.2); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0); }
+    50% { box-shadow: 0 0 0 12px rgba(201, 162, 39, 0.2); }
 }
 
 @keyframes float-petal {
@@ -1794,7 +1826,7 @@ img { max-width: 100%; }
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(46, 10, 16, 0.6) 0%,
+        rgba(5, 32, 26, 0.6) 0%,
         rgba(30, 8, 12, 0.92) 100%
     );
 }
@@ -1831,7 +1863,7 @@ img { max-width: 100%; }
     background: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(212, 175, 55, 0.35);
+    border: 1px solid rgba(201, 162, 39, 0.35);
     border-radius: 16px;
     padding: 1.5rem;
     display: flex;
@@ -1842,9 +1874,9 @@ img { max-width: 100%; }
 }
 
 .bank-card:hover {
-    border-color: rgba(212, 175, 55, 0.65);
+    border-color: rgba(201, 162, 39, 0.65);
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(46, 10, 16, 0.5);
+    box-shadow: 0 12px 30px rgba(5, 32, 26, 0.5);
 }
 
 .bank-header {
@@ -1885,8 +1917,8 @@ img { max-width: 100%; }
 }
 
 .copy-btn {
-    background: rgba(212, 175, 55, 0.2);
-    border: 1px solid rgba(212, 175, 55, 0.5);
+    background: rgba(201, 162, 39, 0.2);
+    border: 1px solid rgba(201, 162, 39, 0.5);
     color: var(--gold-light);
     font-size: 0.78rem;
     font-family: var(--font-sans);
@@ -1901,12 +1933,12 @@ img { max-width: 100%; }
 }
 
 .copy-btn:hover {
-    background: rgba(212, 175, 55, 0.4);
+    background: rgba(201, 162, 39, 0.4);
     transform: scale(1.05);
 }
 
 .copy-btn.copied {
-    background: rgba(212, 175, 55, 0.5);
+    background: rgba(201, 162, 39, 0.5);
     border-color: var(--gold-light);
     color: #fff;
 }
