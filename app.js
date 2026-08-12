@@ -1,6 +1,6 @@
 /* ================================================
    app.js - Wedding Invitation JavaScript
-   Eka & Badri | Akad 2 September 2026, Resepsi 3 September 2026
+   Eka & Badri | Akad 1 September 2026, Resepsi 2 September 2026
    ================================================ */
 
 'use strict';
@@ -8,7 +8,7 @@
 // ================================================
 // CONSTANTS & CONFIG
 // ================================================
-const WEDDING_DATE = new Date('2026-09-03T12:00:00+07:00');
+const WEDDING_DATE = new Date('2026-09-02T12:00:00+07:00');
 const GALLERY_IMAGES = [
     'img/keluarga-full.jpeg'
 ];
@@ -526,7 +526,7 @@ window.addEventListener('scroll', () => {
 // ================================================
 function shareInvitation() {
     const url = window.location.href;
-    const text = 'Kami mengundang Bapak/Ibu/Saudara/i ke Resepsi Pernikahan Eka & Badri - Kamis, 3 September 2026 Pukul 12.00-14.00 WIB di Dau, Malang';
+    const text = 'Kami mengundang Bapak/Ibu/Saudara/i ke Resepsi Pernikahan Eka & Badri - Rabu, 2 September 2026 Pukul 12.00-14.00 WIB di Dau, Malang';
 
     if (navigator.share) {
         navigator.share({
