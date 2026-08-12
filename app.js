@@ -1,6 +1,6 @@
 /* ================================================
    app.js - Wedding Invitation JavaScript
-   Eka & Badri | Akad 1 September 2026, Resepsi 2 September 2026
+   Tyas & Badri | Akad 1 September 2026, Resepsi 2 September 2026
    ================================================ */
 
 'use strict';
@@ -433,7 +433,7 @@ function submitWish(e) {
 
     // Simpan ke localStorage saja (lihat catatan di fetchWishes soal
     // SCRIPT_URL bersama template lama) sampai ada Google Sheet khusus
-    // Eka & Badri.
+    // Tyas & Badri.
     const wishes  = JSON.parse(localStorage.getItem('wedding-wishes') || '[]');
     const newWish = { name, message, time: timeString };
     wishes.unshift(newWish);
@@ -449,8 +449,8 @@ function submitWish(e) {
 // Tampilkan ucapan dari localStorage saat halaman dibuka.
 // Catatan: SCRIPT_URL adalah Google Apps Script bersama milik template lama
 // (Sabrina & Alak) dan tidak memfilter per-pasangan, jadi sengaja TIDAK
-// dipakai di sini agar ucapan tamu Eka & Badri tidak tercampur ucapan
-// pasangan lain. Sambungkan ke Google Sheet baru khusus Eka & Badri kalau
+// dipakai di sini agar ucapan tamu Tyas & Badri tidak tercampur ucapan
+// pasangan lain. Sambungkan ke Google Sheet baru khusus Tyas & Badri kalau
 // mau ucapan tersimpan terpusat, bukan hanya di browser masing-masing tamu.
 function fetchWishes() {
     const wishesList = document.getElementById('wishesList');
@@ -526,11 +526,11 @@ window.addEventListener('scroll', () => {
 // ================================================
 function shareInvitation() {
     const url = window.location.href;
-    const text = 'Kami mengundang Bapak/Ibu/Saudara/i ke Resepsi Pernikahan Eka & Badri - Rabu, 2 September 2026 Pukul 12.00-14.00 WIB di Dau, Malang';
+    const text = 'Kami mengundang Bapak/Ibu/Saudara/i ke Resepsi Pernikahan Tyas & Badri - Rabu, 2 September 2026 Pukul 12.00-14.00 WIB di Dau, Malang';
 
     if (navigator.share) {
         navigator.share({
-            title: 'Undangan Pernikahan Eka & Badri',
+            title: 'Undangan Pernikahan Tyas & Badri',
             text: text,
             url: url
         }).catch(console.warn);
